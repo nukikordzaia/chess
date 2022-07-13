@@ -11,7 +11,15 @@ public class Rook extends Piece {
     }
 
     @Override
-    public boolean canPieceMove(Cell from, Cell to) {
+    public boolean canPieceMove(Cell from, Cell to) { //should consider castle with king
+        if (!to.isBusy()) {
+            return from.getNumber() == to.getNumber() || from.getLetter() == to.getLetter();
+        } else {
+            if (to.getPiece().getColor() != getColor()) {  //move to kill the opponent
+                //kill opponent here
+                return true;
+            }
+        }
         return false;
     }
 }

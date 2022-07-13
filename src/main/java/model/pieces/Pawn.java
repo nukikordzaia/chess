@@ -12,23 +12,22 @@ public class Pawn extends Piece {
 
     @Override
     public boolean canPieceMove(Cell from, Cell to) {
-        if (!to.isBusy()) {
-            if (Math.abs(to.getNumber() - from.getNumber()) == 2 && to.getLetter() == from.getLetter() && !isMoved()) { //move forward with 2 cell
+        if (!to.isBusy()) { //if cell is empty
+            if (getDistanceForNum(from, to) == 2 && to.getLetter() == from.getLetter() && !isMoved()) { //move forward with 2 cell
                 return isMoveReversed(from, to);
             }
-            if (Math.abs(to.getNumber() - from.getNumber()) == 1 && to.getLetter() == from.getLetter()) {  //move forward with 1 cell
+            if (getDistanceForNum(from, to) == 1 && to.getLetter() == from.getLetter()) {  //move forward with 1 cell
                 return isMoveReversed(from, to);
             }
         } else {
-            if (Math.abs(to.getNumber() - from.getNumber()) == 1 && (to.getLetter() - 1 == from.getLetter() || to.getLetter() + 1 == from.getLetter()
-                    && to.getPiece().getColor() != getColor())) { //move forward to kill the opponent
+            if (getDistanceForNum(from, to) == 1 && getDistanceForLet(from, to) == 1
+                    && to.getPiece().getColor() != getColor()){ //move forward to kill the opponent
                 if (!isMoveReversed(from, to)) {
                     //kill opponent here
                     return true;
                 }
             }
         }
-
         return false;
     }
 

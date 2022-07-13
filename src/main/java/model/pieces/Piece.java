@@ -73,4 +73,12 @@ public abstract class Piece {
     public void move(Cell from, Cell to) {
 
     }
+
+    public int getDistanceForNum(Cell from, Cell to) {
+       return Math.abs(to.getNumber() - from.getNumber());
+    }
+
+    public int getDistanceForLet(Cell from, Cell to) {
+        return Math.abs(to.getLetter() - from.getLetter());
+    }
 }
