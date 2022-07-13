@@ -1,6 +1,7 @@
-package model;
+package model.pieces;
 
-import java.util.Map;
+import model.Color;
+import model.board.Cell;
 
 public abstract class Piece {
     private Color color;
@@ -8,9 +9,9 @@ public abstract class Piece {
     private boolean isMoved;
     private boolean canMove;
     private String display;
-    private Location location;
+    private Cell location;
 
-    public Piece(Color color, int rank, boolean isMoved, boolean canMove, String display, Location location) {
+    public Piece(Color color, int rank, boolean isMoved, boolean canMove, String display, Cell location) {
         this.color = color;
         this.rank = rank;
         this.isMoved = isMoved;
@@ -59,13 +60,17 @@ public abstract class Piece {
         this.display = display;
     }
 
-    public Location getLocation() {
+    public Cell getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(Cell location) {
         this.location = location;
     }
 
-    public abstract boolean canPieceMove(Location location);
+    public abstract boolean canPieceMove(Cell from, Cell to);
+
+    public void move(Cell from, Cell to) {
+
+    }
 }

@@ -1,10 +1,13 @@
-package model;
+package model.pieces;
+
+import model.Color;
+import model.board.Cell;
 
 public class King extends Piece {
     private static final int rank = 100; //not correct but needed
     private boolean isCastled;
 
-    public King(Color color, boolean isMoved, boolean canMove, String display, Location location, boolean isCastled) {
+    public King(Color color, boolean isMoved, boolean canMove, String display, Cell location, boolean isCastled) {
         super(color, rank, isMoved, canMove, display, location);
         this.isCastled = isCastled;
     }
@@ -18,7 +21,7 @@ public class King extends Piece {
     }
 
     @Override
-    public boolean canPieceMove(Location location) {
+    public boolean canPieceMove(Cell from, Cell to) {
         return false;
     }
 }
