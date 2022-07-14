@@ -5,13 +5,22 @@ import model.board.Cell;
 
 public class Bishop extends Piece {
     private static final int rank = 3;
+    private static final String name = "Bishop";
 
-    public Bishop(Color color, boolean isMoved, boolean canMove, String display, Cell location) {
-        super(color, rank, isMoved, canMove, display, location);
+    public Bishop(Color color, long id, boolean isMoved, boolean canMove, String display) {
+       super(color, id, rank, name, isMoved, canMove, display);
     }
 
     @Override
-    public boolean canPieceMove(Cell from, Cell to) {
+    public boolean canPieceMove(Cell from, Cell to) { // consider if king is safe, check king
+        if (!to.isBusy()) {
+            return (getDistanceForNum(from, to) == getDistanceForLet(from, to) && from.getColor() == to.getColor());
+        } else {
+            if (!isYourPiece(this, to.getPiece())) {
+                //kill opponent here
+                return true;
+            }
+        }
         return false;
     }
 }
