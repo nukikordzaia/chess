@@ -1,11 +1,12 @@
 package model.pieces;
 
 import model.Color;
+import model.PieceName;
 import model.board.Cell;
 
 public class Rook extends Piece {
     private static final int rank = 5;
-    private static final String name = "Rook";
+    private static final PieceName name = PieceName.Rook;
 
     public Rook(Color color, long id, boolean isMoved, boolean canMove, String display) {
         super(color, id, rank, name, isMoved, canMove, display);

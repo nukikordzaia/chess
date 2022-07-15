@@ -1,11 +1,12 @@
 package model.pieces;
 
 import model.Color;
+import model.PieceName;
 import model.board.Cell;
 
 public class Pawn extends Piece {
     private static final int rank = 1;
-    private static final String name = "Pawn";
+    private static final PieceName name = PieceName.Pawn;
 
     public Pawn(Color color,long id, boolean isMoved, boolean canMove, String display) {
         super(color, id, rank, name, isMoved, canMove, display);

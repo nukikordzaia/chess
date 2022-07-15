@@ -1,11 +1,12 @@
 package model.pieces;
 
 import model.Color;
+import model.PieceName;
 import model.board.Cell;
 
 public class Bishop extends Piece {
     private static final int rank = 3;
-    private static final String name = "Bishop";
+    private static final PieceName name = PieceName.Bishop;
 
     public Bishop(Color color, long id, boolean isMoved, boolean canMove, String display) {
        super(color, id, rank, name, isMoved, canMove, display);

@@ -10,5 +10,5 @@ import java.util.Map;
 @Getter
 @Setter
 public class Board {
-    private Map<Integer, Map<String, Cell>> board;
+    private Map<Integer, Map<Character, Cell>> board;
 }

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import model.Color;
+import model.PieceName;
 import model.board.Cell;
 
 @AllArgsConstructor
@@ -13,7 +14,7 @@ public abstract class Piece {
     private Color color;
     private long id;
     private int rank;
-    private String name;
+    private PieceName name;
     private boolean isMoved;
     private boolean canMove;
     private String display;
